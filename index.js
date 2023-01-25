@@ -32,7 +32,7 @@ app.post('/students', (req, res) => {
     const { firstname, lastname, age, group } = req.body;
     console.log(req.body);
     if (!firstname) {
-        return res.status(400).send({ message: 'firstname is required' });
+        return res.status(400).send({ message: req.body });
     }
     pool.query('INSERT INTO students (firstname, lastname, age, "group") VALUES ($1, $2, $3, $4)', [firstname, lastname, age, group], (error, result) => {
         if (error) {
