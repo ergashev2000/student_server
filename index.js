@@ -30,7 +30,7 @@ app.get('/students', (req, res) => {
 
 app.post('/students', (req, res) => {
     const { firstname, lastname, age, group } = req.body;
-    console.log(firstname);
+    console.log(req.body);
     if (!firstname) {
         return res.status(400).send({ message: 'firstname is required' });
     }
